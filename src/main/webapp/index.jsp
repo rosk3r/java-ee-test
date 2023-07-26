@@ -9,5 +9,6 @@
 <br/>
 <p><a href="hello">Hello Servlet</a> - Simple Servlet</p>
 <p><a href="get-parameter">Get Parameter Servlet</a> - Servlet with parameter (use: ?id=8)</p>
+<p><a href="form.jsp">Form Servlet</a> - Servlet with a form to be filled in</p>
 </body>
 </html>
