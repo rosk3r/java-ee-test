@@ -14,5 +14,6 @@
 <p><a href="redirect">Redirect Servlet</a> - Servlet with redirecting</p>
 <p><a href="errorPage">Error Page</a> - Handling the 404 error</p>
 <p><a href="exception">Exception Page</a> - Error when an exception occurs</p>
+<p><a href="set">Cookies</a> - Set and Get Cookies page</p>
 </body>
 </html>
