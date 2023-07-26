@@ -1,0 +1,13 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JSP - Hello World</title>
+</head>
+<body>
+<h1><%= "A test project to learn the basic functionality of java ee." %></h1>
+<br/>
+<p><a href="hello">Hello Servlet</a> - Simple Servlet</p>
+<p><a href="get-parameter">Get Parameter Servlet</a> - Servlet with parameter (use: ?id=8)</p>
+</body>
+</html>
