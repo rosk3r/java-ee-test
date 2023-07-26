@@ -21,6 +21,8 @@ public class GetCookieServlet extends HttpServlet {
         }
         PrintWriter writer = response.getWriter();
         writer.println("Name: " + cookie.getValue());
+        writer.println("<p><a href=\"index.jsp\">Go back</a> - Return to main page</p>");
+
         writer.close();
 
     }
