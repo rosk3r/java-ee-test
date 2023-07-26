@@ -12,5 +12,7 @@
 <p><a href="form.jsp">Form Servlet</a> - Servlet with a form to be filled in</p>
 <p><a href="forward">Forward Servlet</a> - Servlet with forward menu</p>
 <p><a href="redirect">Redirect Servlet</a> - Servlet with redirecting</p>
+<p><a href="errorPage">Error Page</a> - Handling the 404 error</p>
+<p><a href="exception">Exception Page</a> - Error when an exception occurs</p>
 </body>
 </html>
