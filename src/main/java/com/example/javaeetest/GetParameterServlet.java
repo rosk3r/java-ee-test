@@ -14,10 +14,7 @@ public class GetParameterServlet extends HttpServlet {
         String id = request.getParameter("id");
 
         writer.println("<h2>Id:" + id + "</h2>");
-
-        writer.println("<html><body>");
         writer.println("<p><a href=\"index.jsp\">Go back</a> - Return to main page</p>");
-        writer.println("</body></html>");
         writer.close();
 
     }
