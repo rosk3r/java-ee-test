@@ -22,8 +22,9 @@ public class FormServlet extends HttpServlet {
         writer.println("<p>Payment: " + payment + "</p>");
         writer.println("<p>Country: " + country + "</p>");
         writer.println("<h4>Options</h4>");
-        for (String option : options)
+        for (String option : options) {
             writer.println("<li>" + option + "</li>");
+        }
         writer.println("<p><a href=\"index.jsp\">Go back</a> - Return to main page</p>");
         writer.close();
     }

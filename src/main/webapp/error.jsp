@@ -10,8 +10,10 @@
 </head>
 <body>
 <h2>Exception occurred while processing the request</h2>
-<p>Type: <%= exception%></p>
-<p>Message: <%= message %></p>
+<p>Type: <%= exception%>
+</p>
+<p>Message: <%= message %>
+</p>
 <p><a href="index.jsp">Go back</a> - Return to main page</p>
 </body>
 </html>
