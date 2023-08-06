@@ -1,6 +1,6 @@
 package com.example.javaeetest.mysql.business;
 
-public class Massage {
+public class Message {
 
     private static final long serialVersionUID = 1L;
 
@@ -8,16 +8,16 @@ public class Massage {
     private String description;
     private int someNumber;
 
-    public Massage() {
+    public Message() {
     }
 
-    public Massage(String description, int someNumber) {
+    public Message(String description, int someNumber) {
 
         this.description = description;
         this.someNumber = someNumber;
     }
 
-    public Massage(int id, String description, int someNumber) {
+    public Message(int id, String description, int someNumber) {
 
         this.id = id;
         this.description = description;

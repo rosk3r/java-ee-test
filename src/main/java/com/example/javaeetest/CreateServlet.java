@@ -1,7 +1,7 @@
 package com.example.javaeetest;
 
 import com.example.javaeetest.mysql.business.JavaDB;
-import com.example.javaeetest.mysql.business.Massage;
+import com.example.javaeetest.mysql.business.Message;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,8 +25,9 @@ public class CreateServlet extends HttpServlet {
         try {
             String description = request.getParameter("description");
             int someNumber = Integer.parseInt(request.getParameter("someNumber"));
-            Massage massage = new Massage(description, someNumber);
-            JavaDB.insert(massage);
+            Message message = new Message(description, someNumber);
+            JavaDB.insert(message);
+
             response.sendRedirect(request.getContextPath() + "/index");
         } catch (Exception ex) {
 

@@ -1,7 +1,7 @@
 package com.example.javaeetest;
 
 import com.example.javaeetest.mysql.business.JavaDB;
-import com.example.javaeetest.mysql.business.Massage;
+import com.example.javaeetest.mysql.business.Message;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -19,17 +19,15 @@ public class EditServlet extends HttpServlet {
 
         try {
             int id = Integer.parseInt(request.getParameter("id"));
-            Massage massage = JavaDB.selectOne(id);
+            Message message = JavaDB.selectOne(id);
 
-            if(massage!=null) {
-                request.setAttribute("massage", massage);
+            if (message != null) {
+                request.setAttribute("massage", message);
                 getServletContext().getRequestDispatcher("/edit.jsp").forward(request, response);
-            }
-            else {
+            } else {
                 getServletContext().getRequestDispatcher("/notfound.jsp").forward(request, response);
             }
-        }
-        catch(Exception ex) {
+        } catch (Exception ex) {
             getServletContext().getRequestDispatcher("/notfound.jsp").forward(request, response);
         }
     }
@@ -41,13 +39,11 @@ public class EditServlet extends HttpServlet {
             int id = Integer.parseInt(request.getParameter("id"));
             String description = request.getParameter("description");
             int someNumber = Integer.parseInt(request.getParameter("someNumber"));
-            Massage massage = new Massage(id, description, someNumber);
+            Message message = new Message(id, description, someNumber);
 
-            JavaDB.update(massage);
+            JavaDB.update(message);
             response.sendRedirect(request.getContextPath() + "/index");
-        }
-        catch(Exception ex) {
-
+        } catch (Exception ex) {
             getServletContext().getRequestDispatcher("/notfound.jsp").forward(request, response);
         }
     }

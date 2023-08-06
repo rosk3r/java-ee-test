@@ -9,9 +9,9 @@ public class JavaDB {
     private final static String username = "root";
     private final static String password = "root";
 
-    public static ArrayList<Massage> select() {
+    public static ArrayList<Message> select() {
 
-        ArrayList<Massage> massageList = new ArrayList<Massage>();
+        ArrayList<Message> messageList = new ArrayList<Message>();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
             try (Connection connection = DriverManager.getConnection(url, username, password)) {
@@ -22,25 +22,24 @@ public class JavaDB {
                     int id = resultSet.getInt("id");
                     String description = resultSet.getString("descriptionText");
                     int someNumbers = resultSet.getInt("someNumber");
-                    Massage massage = new Massage(id, description, someNumbers);
-                    System.out.println(massage.getId());
-                    massageList.add(massage);
+                    Message message = new Message(id, description, someNumbers);
+                    messageList.add(message);
                 }
             }
         } catch (Exception ex) {
             System.out.println(ex);
         }
-        return massageList;
+        return messageList;
     }
 
-    public static Massage selectOne(int id) {
+    public static Message selectOne(int id) {
 
-        Massage massage = null;
+        Message message = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
             try (Connection conn = DriverManager.getConnection(url, username, password)) {
 
-                String sql = "SELECT * FROM java_ee_test WHERE id=?";
+                String sql = "SELECT * FROM test_data WHERE id=?";
                 try (PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
                     preparedStatement.setInt(1, id);
                     ResultSet resultSet = preparedStatement.executeQuery();
@@ -49,73 +48,72 @@ public class JavaDB {
                         int massId = resultSet.getInt("id");
                         String description = resultSet.getString("descriptionText");
                         int someNumbers = resultSet.getInt("someNumber");
-                        massage = new Massage(massId, description, someNumbers);
+                        message = new Message(massId, description, someNumbers);
                     }
                 }
             }
         } catch (Exception ex) {
+
             System.out.println(ex);
         }
-        return massage;
+        return message;
     }
 
-    public static int insert(Massage massage) {
+    public static void insert(Message message) {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
             try (Connection conn = DriverManager.getConnection(url, username, password)) {
 
-                String sql = "INSERT INTO java_ee_test (descriptionText, someNumber) Values (?, ?)";
+                String sql = "INSERT INTO test_data (descriptionText, someNumber) Values (?, ?)";
                 try (PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
-                    preparedStatement.setString(1, massage.getDescription());
-                    preparedStatement.setInt(2, massage.getSomeNumber());
+                    preparedStatement.setString(1, message.getDescription());
+                    preparedStatement.setInt(2, message.getSomeNumber());
 
-                    return preparedStatement.executeUpdate();
+                    preparedStatement.executeUpdate();
                 }
             }
         } catch (Exception ex) {
             System.out.println(ex);
         }
-        return 0;
     }
 
-    public static int update(Massage massage) {
+    public static void update(Message message) {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
             try (Connection conn = DriverManager.getConnection(url, username, password)) {
 
-                String sql = "UPDATE java_ee_test SET descriptionText = ?, someNumber = ? WHERE id = ?";
+                String sql = "UPDATE test_data SET descriptionText = ?, someNumber = ? WHERE id = ?";
                 try (PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
-                    preparedStatement.setString(1, massage.getDescription());
-                    preparedStatement.setInt(2, massage.getSomeNumber());
-                    preparedStatement.setInt(3, massage.getId());
+                    preparedStatement.setString(1, message.getDescription());
+                    preparedStatement.setInt(2, message.getSomeNumber());
+                    preparedStatement.setInt(3, message.getId());
 
-                    return preparedStatement.executeUpdate();
+                    preparedStatement.executeUpdate();
                 }
             }
         } catch (Exception ex) {
+
             System.out.println(ex);
         }
-        return 0;
     }
 
-    public static int delete(int id) {
+    public static void delete(int id) {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
             try (Connection conn = DriverManager.getConnection(url, username, password)) {
 
-                String sql = "DELETE FROM java_ee_test WHERE id = ?";
+                String sql = "DELETE FROM test_data WHERE id = ?";
                 try (PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
                     preparedStatement.setInt(1, id);
 
-                    return preparedStatement.executeUpdate();
+                    preparedStatement.executeUpdate();
                 }
             }
         } catch (Exception ex) {
             System.out.println(ex);
         }
-        return 0;
     }
 }
